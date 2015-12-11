@@ -41,6 +41,6 @@ def get_aapt_bin():
 
 def get_package(apk):
     output = _check_output([get_aapt_bin(), 'dump', 'badging', apk], stderr=os.devnull)
-    for line in output.split('\n'):
+    for line in output.decode('ISO-8859-1').split('\n'):
         if line.startswith('package:'):
             return parse_package_line(line)

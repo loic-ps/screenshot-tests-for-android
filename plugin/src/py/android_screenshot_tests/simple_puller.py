@@ -25,7 +25,7 @@ class SimplePuller:
         output = subprocess.check_output(
             ["adb"] + self._adb_args + ["shell",
                                         "test -e %s && echo EXISTS" % src])
-        return "EXISTS" in output
+        return "EXISTS" in output.decode('ISO-8859-1')
 
     def pull(self, src, dest):
         subprocess.check_output(

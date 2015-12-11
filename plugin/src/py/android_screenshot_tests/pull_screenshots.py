@@ -84,9 +84,9 @@ def generate_html(dir):
 
 def write_image(dir, html, screenshot):
     html.write('<table class="img-wrapper">')
-    for y in xrange(int(screenshot.find('tile_height').text)):
+    for y in range(int(screenshot.find('tile_height').text)):
         html.write('<tr>')
-        for x in xrange(int(screenshot.find('tile_width').text)):
+        for x in range(int(screenshot.find('tile_width').text)):
             html.write('<td>')
             image_file = "./" + common.get_image_file_name(screenshot.find('name').text, x, y)
 
@@ -130,7 +130,7 @@ def _copy_via_zip(src_zip, zip_path, dest):
         zip = zipfile.ZipFile(src_zip)
         input = zip.open(zip_path, 'r')
         with open(dest, 'w') as output:
-            output.write(input.read())
+            output.write(input.read().decode('ISO-8859-1'))
     else:
         # walk up the tree
         head, tail = os.path.split(src_zip)
