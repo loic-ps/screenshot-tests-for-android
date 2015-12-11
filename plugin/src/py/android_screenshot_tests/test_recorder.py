@@ -8,12 +8,13 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+from __future__ import absolute_import
 import tempfile
 import unittest
 import shutil
 import os
 from os.path import join, exists
-from recorder import Recorder, VerifyError
+from .recorder import Recorder, VerifyError
 
 from PIL import Image
 
